@@ -2,7 +2,7 @@ import pygame,sys
 from pygame.locals import*
 pygame.init()
 
-display=pygame.display.set_mode((500,400))
+display=pygame.display.set_mode((1500,400))
 #redgreenblue
 white=(255,255,255)
 blue=(0,0,255)
