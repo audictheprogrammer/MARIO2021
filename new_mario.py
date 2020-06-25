@@ -25,10 +25,11 @@ while True:
 	display.fill(black)
 	pygame.draw.rect(display,red,(x,y,l,h-50))
 	pygame.draw.rect(display,blue,(x,y+30,l,h-30))
+	if len(x_block)==1 and len(y_block)==1:
+		pygame.draw.rect(display,block,(x_block[0],y_block[0],L[0],H[0]))
 
 	for event in pygame.event.get():
 		if len(x_block)==1 and len(y_block)==1:
-			pygame.draw.rect(display,block,(x_block[0],y_block[0],L[0],H[0]))
 
 			if event.type==pygame.KEYDOWN:
 				if event.key==pygame.K_LEFT:
