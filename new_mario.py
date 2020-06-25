@@ -26,9 +26,9 @@ while True:
 	pygame.draw.rect(display,red,(x,y,l,h-50))
 	pygame.draw.rect(display,blue,(x,y+30,l,h-30))
 
-	if len(x_block)==1 and len(y_block)==1:
-		pygame.draw.rect(display,block,(x_block[0],y_block[0],L[0],H[0]))
-		for event in pygame.event.get():
+	for event in pygame.event.get():
+		if len(x_block)==1 and len(y_block)==1:
+			pygame.draw.rect(display,block,(x_block[0],y_block[0],L[0],H[0]))
 
 			if event.type==pygame.KEYDOWN:
 				if event.key==pygame.K_LEFT:
@@ -45,15 +45,15 @@ while True:
 				elif event.key==pygame.K_DOWN:
 					y=y+jump
 	
-			if event.type==QUIT:
-				pygame.quit()
-				sys.exit()
+		if event.type==QUIT:
+			pygame.quit()
+			sys.exit()
 
 
 
 
 
-
+	
 
 	x=max(x,0)
 	x=min(x,display_x-l)
