@@ -13,7 +13,7 @@ blue=(0,0,255)
 x=210
 y=310
 x_block=[310]
-y_block=[180]
+y_block=[280]
 l=20
 h=80
 L=[60]
@@ -31,14 +31,37 @@ while True:
 		pygame.draw.rect(display,block,(x_block[0],y_block[0],L[0],H[0]))
 
 		if int(y+h)==display_y or int(y+h)==y_block[0] and x>=x_block[0] and x+l<=x_block[0]+L[0]:
-			gravity=0
 			down_button==0
-		else:
+		elif int(y+h)==y_block[0] and (x>=x_block[0]+L[0] or x+l<x_block[0]):
 			if down_button==1:
-				gravity=accelerated_gravity
+				down_button=1
 			else:
-				gravity=basic_gravity
+				down_button=0
+		if down_button==1:
+			gravity=accelerated_gravity
+			if int(y+h)==y_block[0] and x<x_block[0]+L[0] and x+l>x_block[0]:
+				gravity=0
+				down_button=0
+		elif int(y+h)==y_block[0] and x<x_block[0]+L[0] and x+l>x_block[0]:
+			gravity=0
+		else:
+			gravity=basic_gravity
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 		delta=y-(y_block[0]+H[0])
+
 
 	for event in pygame.event.get():
 		if len(x_block)==1 and len(y_block)==1:
