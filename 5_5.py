@@ -17,12 +17,12 @@ list=[]
 
 n=int(input("whats the max degree of the polynomial\n"))
 for i in range(n+1):
-	a=int(input(f"coefficient of X degree{i}\n"))
+	a=float(input(f"coefficient of X degree{i}\n"))
 	list.append(a)
 print(list)
 
-interval=float(input("interval?\n"))
-
+interval_x=float(input("window x?\n"))
+interval_y=float(input("window y?\n"))
 cree_fenetre(400,400)#display
 
 #drawing axes
@@ -31,16 +31,16 @@ fleche(0,200,400,200,"black",3)
 ligne(200,400,200,0)
 fleche(200,400,200,0,"black",3)
 
-texte(370,205,str(interval),taille=12)
-texte(5,205,str(-interval),taille=12)
-texte(170,0,str(interval),taille=12)
-texte(170,370,str(-interval),taille=12)
+texte(370,205,str(interval_x),taille=12)
+texte(5,205,str(-interval_x),taille=12)
+texte(170,0,str(interval_y),taille=12)
+texte(170,370,str(-interval_y),taille=12)
 
 
 #quick maths
 for x in range(1,400):
-	ligne(x-1,g(h(f(x-1,interval)),interval),x,g(h(f(x,interval)),interval),"red")
-	print(x,f(x,interval),h(f(x,interval)),g(h(f(x,interval)),interval))
+	ligne(x-1,g(h(f(x-1,interval_x)),interval_y),x,g(h(f(x,interval_x)),interval_y),"red")
+	print(x,f(x,interval_x),h(f(x,interval_x)),g(h(f(x,interval_x)),interval_y))
 	
 
 #to allow to close the tk window
